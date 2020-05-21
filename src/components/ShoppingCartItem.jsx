@@ -1,33 +1,33 @@
 import React from "react";
-
-function ShoppingCartItem(props) {
+import ShoopingCart from "./ShoopingCart.jsx";
+const ShoopingCartItem = ({ cart, addCart }) => {
   return (
     <div className="col shopping__cart__item">
       <div className="row flex-column">
         <div className="col">
           <div className="row">
-            <div className="col-12 col-xl-4 mb-3 mb-xl-0">
-              <img className="shopping__cart__img" src={props.img} alt="" />
-            </div>
+            {/* <div className="col-12 col-xl-4 mb-3 mb-xl-0"> */}
+            {/* <img className="shopping__cart__img" src={img_2} alt="" /> */}
+            {/* </div> */}
             <div className="col-12 col-xl-8">
               <div className="row flex-column">
-                <div className="col">
-                  <h4 className="h5 product-name">
-                    <strong>{props.title}</strong>
-                  </h4>
-                </div>
-                <div className="col">
-                  <p>
-                    <strong>{props.price}€</strong>
-                  </p>
-                </div>
+                {cart.length === 0 ? (
+                  <p className="text-center">Su carrito está vacío</p>
+                ) : (
+                  cart.map((product) => (
+                    <ShoopingCart
+                      key={product.id}
+                      product={product}
+                      // cart={cart}
+                      // addCart={addCart}
+                    />
+                  ))
+                )}
+
                 <div className="col mt-auto">
                   <div className="row">
                     <div className="col col-6 col-lg-4">
-                      <select
-                        className="custom-select"
-                        onChange={props.handleChange}
-                      >
+                      <select defaultValue="2" className="custom-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -40,15 +40,11 @@ function ShoppingCartItem(props) {
                         <option value="10">10</option>
                       </select>
                     </div>
-                    <div className="col col-6 col-lg-8">
-                      <button
-                        type="btn"
-                        className="btn btn-dark"
-                        onClick={props.handleRemove}
-                      >
+                    {/* <div className="col col-6 col-lg-8">
+                      <button type="btn" className="btn btn-dark">
                         Remove
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -61,6 +57,6 @@ function ShoppingCartItem(props) {
       </div>
     </div>
   );
-}
+};
 
-export default ShoppingCartItem;
+export default ShoopingCartItem;

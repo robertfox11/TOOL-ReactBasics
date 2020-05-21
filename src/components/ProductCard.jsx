@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProductCard(props) {
+function ProductCard({ cart, addCart }) {
   return (
     <div className="col mb-4 d-flex flex-column product__card">
       <img className="product__img" src={props.img} alt="" />
