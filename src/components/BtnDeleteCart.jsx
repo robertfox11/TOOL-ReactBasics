@@ -2,11 +2,10 @@ import React from "react";
 
 const BtnDeleteCart = ({ product, cart, addCart, products }) => {
   const handleRemove = (id) => {
-    // const products = cart.filter((product) => product.id !== id);
+    const products = cart.filter((product) => product.id !== id);
     //colocar los productos en el state
-    console.log(id);
-    console.log(cart);
-    // addCart(products);
+    // console.log(products);
+    addCart(products);
   };
   return (
     <div className="col col-6 col-lg-8">

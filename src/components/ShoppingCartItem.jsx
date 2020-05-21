@@ -18,8 +18,8 @@ const ShoopingCartItem = ({ cart, addCart }) => {
                     <ShoopingCart
                       key={product.id}
                       product={product}
-                      // cart={cart}
-                      // addCart={addCart}
+                      cart={cart}
+                      addCart={addCart}
                     />
                   ))
                 )}

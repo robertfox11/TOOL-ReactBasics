@@ -13,15 +13,15 @@ const ShoopingCart = ({ product, cart, addCart, products }) => {
       <div className="d-block">
         <h3 className="h5 product-name">{title}</h3>
         <p>{price}</p>
-        {/* {products ? ( */}
-        <BtnAddCart
-          key={id}
-          product={product}
-          cart={cart}
-          products={products}
-          addCart={addCart}
-        />
-        {/* ) : (
+        {products ? (
+          <BtnAddCart
+            key={id}
+            product={product}
+            cart={cart}
+            products={products}
+            addCart={addCart}
+          />
+        ) : (
           <BtnDeleteCart
             key={id}
             product={product}
@@ -29,7 +29,7 @@ const ShoopingCart = ({ product, cart, addCart, products }) => {
             products={products}
             addCart={addCart}
           />
-        )} */}
+        )}
         ;
       </div>
     </div>
