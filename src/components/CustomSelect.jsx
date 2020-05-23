@@ -1,6 +1,6 @@
 import React from "react";
 import BtnDeleteCart from "./BtnDeleteCart";
-const CustomSelect = ({ product, cart, addCart, products, handleRemove }) => {
+const CustomSelect = ({ product, cart, addCart }) => {
   return (
     <div className="col mt-auto">
       <div className="row">
@@ -23,7 +23,6 @@ const CustomSelect = ({ product, cart, addCart, products, handleRemove }) => {
           product={product}
           cart={cart}
           addCart={addCart}
-          handleRemove={handleRemove}
         />
       </div>
     </div>

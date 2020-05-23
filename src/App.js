@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // import ShoppingCartItem from "./components/ShoppingCartItem";
 import ShoopingCart from "./components/ShoopingCart.jsx";
@@ -7,10 +7,24 @@ import Aside from "./components/Aside.jsx";
 import prod from "./products";
 
 function App() {
+  //guardar en local Storage
+
   //Json lo pasamos useState lo metemos a la variable products
   const [products, saveProduct] = useState(prod);
+  let prodLocalStorage = localStorage.getItem("cart");
+  if (!prodLocalStorage) {
+    prodLocalStorage = [];
+  }
   //Creamos un array para agregar el carrito
   const [cart, addCart] = useState([]);
+  useEffect(() => {
+    if (prodLocalStorage) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } else {
+      localStorage.setItem("cart", JSON.stringify([]));
+    }
+    console.log("Documento listo");
+  }, [cart]);
   // function handleRemove() {
   //   console.log("handleRemove");
   // }
@@ -18,14 +32,6 @@ function App() {
   function handleChange() {
     console.log("handleChange");
   }
-  const handleRemove = (id) => {
-    console.log(id);
-    // const products = cart.filter((product) => product.id !== id);
-    // //colocar los productos en el state
-    // // console.log(products);
-    // addCart(products);
-  };
-
   return (
     <main className="container-fluid">
       <div className="row">
@@ -43,7 +49,7 @@ function App() {
                     products={products}
                     cart={cart}
                     addCart={addCart}
-                    handleRemove={handleRemove}
+                    // handleRemove={handleRemove}
                   ></ShoopingCart>
                 ))}
               </div>
@@ -54,7 +60,7 @@ function App() {
           products={products}
           cart={cart}
           addCart={addCart}
-          handleRemove={handleRemove}
+          // handleRemove={handleRemove}
         />
         {/* <ShoopingCart /> */}
       </div>

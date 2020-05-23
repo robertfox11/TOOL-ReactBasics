@@ -1,8 +1,7 @@
 import React from "react";
 
-const BtnDeleteCart = ({ product, cart, addCart, products }) => {
+const BtnDeleteCart = ({ product, cart, addCart }) => {
   const handleRemove = (id) => {
-    console.log(id);
     const products = cart.filter((product) => product.id !== id);
     addCart(products);
   };
