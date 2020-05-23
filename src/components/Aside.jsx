@@ -1,7 +1,7 @@
 import React from "react";
 import ShoppingCartItem from "./ShoppingCartItem.jsx";
 
-const Aside = ({ cart, addCart }) => {
+const Aside = ({ cart, addCart, handleRemove }) => {
   return (
     <aside className="col col-6 col-lg-4 p-4">
       <div className="row flex-column">
@@ -12,11 +12,8 @@ const Aside = ({ cart, addCart }) => {
         <ShoppingCartItem
           cart={cart}
           addCart={addCart}
-          //   title="Nike Runner 2000"
-          //   price={88}
-          //   img={img_1}
-          //   handleRemove={handleRemove}
-          //   handleChange={handleChange}
+          handleRemove={handleRemove}
+          // handleChange={handleChange}
         />
         <div className="col shopping__cart__footer">
           <div className="row row-cols-1 flex-column">

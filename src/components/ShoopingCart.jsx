@@ -1,10 +1,11 @@
 import React from "react";
 import "../App.scss";
 import BtnAddCart from "./BtnAddCart";
-import BtnDeleteCart from "./BtnDeleteCart";
+
+import CustomSelect from "./CustomSelect";
 // import ShoppingCartItem from "./components/ShoppingCartItem";
 
-const ShoopingCart = ({ product, cart, addCart, products }) => {
+const ShoopingCart = ({ product, cart, addCart, products, handleRemove }) => {
   const { title, price, img, id } = product;
   // console.log(cart);
   return (
@@ -22,15 +23,14 @@ const ShoopingCart = ({ product, cart, addCart, products }) => {
             addCart={addCart}
           />
         ) : (
-          <BtnDeleteCart
-            key={id}
+          <CustomSelect
+            key={product.id}
             product={product}
             cart={cart}
-            products={products}
             addCart={addCart}
+            handleRemove={handleRemove}
           />
         )}
-        ;
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// import ProductCard from "./components/ProductCard.jsx";
 // import ShoppingCartItem from "./components/ShoppingCartItem";
 import ShoopingCart from "./components/ShoopingCart.jsx";
 import Aside from "./components/Aside.jsx";
@@ -12,13 +11,20 @@ function App() {
   const [products, saveProduct] = useState(prod);
   //Creamos un array para agregar el carrito
   const [cart, addCart] = useState([]);
-  function handleRemove() {
-    console.log("handleRemove");
-  }
+  // function handleRemove() {
+  //   console.log("handleRemove");
+  // }
 
   function handleChange() {
     console.log("handleChange");
   }
+  const handleRemove = (id) => {
+    console.log(id);
+    // const products = cart.filter((product) => product.id !== id);
+    // //colocar los productos en el state
+    // // console.log(products);
+    // addCart(products);
+  };
 
   return (
     <main className="container-fluid">
@@ -37,13 +43,19 @@ function App() {
                     products={products}
                     cart={cart}
                     addCart={addCart}
-                  />
+                    handleRemove={handleRemove}
+                  ></ShoopingCart>
                 ))}
               </div>
             </div>
           </section>
         </div>
-        <Aside cart={cart} addCart={addCart} />
+        <Aside
+          products={products}
+          cart={cart}
+          addCart={addCart}
+          handleRemove={handleRemove}
+        />
         {/* <ShoopingCart /> */}
       </div>
     </main>
