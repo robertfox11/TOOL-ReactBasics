@@ -7,27 +7,33 @@ import Aside from "./components/Aside.jsx";
 import prod from "./products";
 
 function App() {
-  //guardar en local Storage
-
-  //Json lo pasamos useState lo metemos a la variable products
   const [products, saveProduct] = useState(prod);
-  let prodLocalStorage = localStorage.getItem("cart");
+  //Creamos un array para agregar el carrito
+
+  //guardar en local Storage
+  let prodLocalStorage = JSON.parse(localStorage.getItem("cart"));
+
   if (!prodLocalStorage) {
     prodLocalStorage = [];
   }
-  //Creamos un array para agregar el carrito
-  const [cart, addCart] = useState([]);
+  //Json lo pasamos useState lo metemos a la variable products
+  const [cart, addCart] = useState(prodLocalStorage);
+  // const [cartLS, addcartLS] = useState(prodLocalStorage);
+
   useEffect(() => {
+    let prodLocalStorage = JSON.parse(localStorage.getItem("cart"));
     if (prodLocalStorage) {
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
       localStorage.setItem("cart", JSON.stringify([]));
     }
-    console.log("Documento listo");
   }, [cart]);
   // function handleRemove() {
   //   console.log("handleRemove");
   // }
+  // const guardar = (cart) => {
+  //   saveProduct([...cart, cart]);
+  // };
 
   function handleChange() {
     console.log("handleChange");
@@ -49,6 +55,7 @@ function App() {
                     products={products}
                     cart={cart}
                     addCart={addCart}
+                    saveProduct={saveProduct}
                     // handleRemove={handleRemove}
                   ></ShoopingCart>
                 ))}
