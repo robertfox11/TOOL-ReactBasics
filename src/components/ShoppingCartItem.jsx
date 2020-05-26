@@ -1,21 +1,11 @@
 import React from "react";
 import ShoopingCart from "./ShoopingCart.jsx";
-const ShoopingCartItem = ({
-  product,
-  cart,
-  addCart,
-  products,
-  handleRemove,
-}) => {
-  // const { title, price, img, id } = product;
+const ShoopingCartItem = ({ cart, addCart, handleChange }) => {
   return (
     <div className="col shopping__cart__item">
       <div className="row flex-column">
         <div className="col">
           <div className="row">
-            {/* <div className="col-12 col-xl-4 mb-3 mb-xl-0"> */}
-            {/* <img className="shopping__cart__img" src={img_2} alt="" /> */}
-            {/* </div> */}
             <div className="col-12 col-xl-8">
               <div className="row flex-column">
                 {cart.length === 0 ? (
@@ -27,6 +17,7 @@ const ShoopingCartItem = ({
                       product={product}
                       cart={cart}
                       addCart={addCart}
+                      handleChange={handleChange}
                     />
                   ))
                 )}

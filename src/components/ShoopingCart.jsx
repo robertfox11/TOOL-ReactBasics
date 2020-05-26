@@ -3,11 +3,8 @@ import "../App.scss";
 import BtnAddCart from "./BtnAddCart";
 
 import CustomSelect from "./CustomSelect";
-// import ShoppingCartItem from "./components/ShoppingCartItem";
-
-const ShoopingCart = ({ product, cart, addCart, products, handleRemove }) => {
+const ShoopingCart = ({ product, cart, addCart, products, handleChange }) => {
   const { title, price, img, id } = product;
-  // console.log(cart);
   return (
     <div className="col mb-4 d-flex flex-column product__card">
       <img className="product__img" src={img} alt="Product Img" />
@@ -28,7 +25,8 @@ const ShoopingCart = ({ product, cart, addCart, products, handleRemove }) => {
             product={product}
             cart={cart}
             addCart={addCart}
-            handleRemove={handleRemove}
+            products={products}
+            handleChange={handleChange}
           />
         )}
       </div>
