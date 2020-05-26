@@ -1,7 +1,7 @@
 import React from "react";
 import ShoppingCartItem from "./ShoppingCartItem.jsx";
 
-const Aside = ({ cart, addCart, handleChange }) => {
+const Aside = ({ cart, addCart, handleChange, error }) => {
   return (
     <aside className="col col-6 col-lg-4 p-4">
       <div className="row flex-column">
@@ -13,6 +13,7 @@ const Aside = ({ cart, addCart, handleChange }) => {
           cart={cart}
           addCart={addCart}
           handleChange={handleChange}
+          error={error}
         />
         <div className="col shopping__cart__footer">
           <div className="row row-cols-1 flex-column">

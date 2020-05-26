@@ -3,7 +3,16 @@ import "../App.scss";
 import BtnAddCart from "./BtnAddCart";
 
 import CustomSelect from "./CustomSelect";
-const ShoopingCart = ({ product, cart, addCart, products, handleChange }) => {
+const ShoopingCart = ({
+  product,
+  cart,
+  addCart,
+  products,
+  handleChange,
+  saveError,
+  count,
+  error,
+}) => {
   const { title, price, img, id } = product;
   return (
     <div className="col mb-4 d-flex flex-column product__card">
@@ -25,8 +34,10 @@ const ShoopingCart = ({ product, cart, addCart, products, handleChange }) => {
             product={product}
             cart={cart}
             addCart={addCart}
-            products={products}
             handleChange={handleChange}
+            saveError={saveError}
+            count={count}
+            error={error}
           />
         )}
       </div>

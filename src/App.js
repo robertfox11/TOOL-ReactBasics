@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from "react";
-
 // import ShoppingCartItem from "./components/ShoppingCartItem";
 import ShoopingCart from "./components/ShoopingCart.jsx";
 import Aside from "./components/Aside.jsx";
@@ -10,7 +9,7 @@ function App() {
   //Creamos un array para agregar el carrito
   const [products, saveProduct] = useState(prod);
   //validar cantidad
-  const [count, saveCount] = useState(0);
+  const [count, saveCount] = useState(1);
   const [error, saveError] = useState(false);
   //guardar en local Storage
   let prodLocalStorage = JSON.parse(localStorage.getItem("cart"));
@@ -29,9 +28,10 @@ function App() {
   }, [cart]);
   //Guardar cantidad
   const handleChange = (e) => {
+    e.preventDefault();
     console.log("hola has hecho un cambio", parseInt(e.target.value));
     saveCount(parseInt(e.target.value));
-    if (count < 1 || count > 11 || isNaN(count)) {
+    if (count <= 1 || count > 9 || isNaN(count)) {
       saveError(true);
       return;
     }
@@ -57,19 +57,19 @@ function App() {
                       addCart={addCart}
                       saveProduct={saveProduct}
                       handleChange={handleChange}
-                      // handleRemove={handleRemove}
                     ></ShoopingCart>
                   ))}
                 </div>
               </div>
             </section>
           </div>
+
           <Aside
             products={products}
             cart={cart}
             addCart={addCart}
             handleChange={handleChange}
-            // handleRemove={handleRemove}
+            error={error}
           />
         </div>
       </main>
