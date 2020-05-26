@@ -9,12 +9,7 @@ const Aside = ({ cart, addCart, handleChange, error }) => {
           <h2 className="h3 mt-2">Shopping Cart</h2>
           <hr className="mb-3" />
         </div>
-        <ShoppingCartItem
-          cart={cart}
-          addCart={addCart}
-          handleChange={handleChange}
-          error={error}
-        />
+        <ShoppingCartItem cart={cart} addCart={addCart} />
         <div className="col shopping__cart__footer">
           <div className="row row-cols-1 flex-column">
             <div className="col">

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from "react";
-// import ShoppingCartItem from "./components/ShoppingCartItem";
 import ShoopingCart from "./components/ShoopingCart.jsx";
 import Aside from "./components/Aside.jsx";
 // Render the products dinamically with a loop json
@@ -8,9 +7,6 @@ import prod from "./products";
 function App() {
   //Creamos un array para agregar el carrito
   const [products, saveProduct] = useState(prod);
-  //validar cantidad
-  const [count, saveCount] = useState(1);
-  const [error, saveError] = useState(false);
   //guardar en local Storage
   let prodLocalStorage = JSON.parse(localStorage.getItem("cart"));
   if (!prodLocalStorage) {
@@ -19,7 +15,7 @@ function App() {
   //Json lo pasamos useState lo metemos a la variable products
   const [cart, addCart] = useState(prodLocalStorage);
   useEffect(() => {
-    let prodLocalStorage = JSON.parse(localStorage.getItem("cart"));
+    let prodLocalStorage = JSON.parse(localStorage.getItem("cart", "count"));
     if (prodLocalStorage) {
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
@@ -27,16 +23,7 @@ function App() {
     }
   }, [cart]);
   //Guardar cantidad
-  const handleChange = (e) => {
-    e.preventDefault();
-    console.log("hola has hecho un cambio", parseInt(e.target.value));
-    saveCount(parseInt(e.target.value));
-    if (count <= 1 || count > 9 || isNaN(count)) {
-      saveError(true);
-      return;
-    }
-    saveError(false);
-  };
+
   return (
     <Fragment>
       <main className="container-fluid">
@@ -56,7 +43,6 @@ function App() {
                       cart={cart}
                       addCart={addCart}
                       saveProduct={saveProduct}
-                      handleChange={handleChange}
                     ></ShoopingCart>
                   ))}
                 </div>
@@ -64,13 +50,7 @@ function App() {
             </section>
           </div>
 
-          <Aside
-            products={products}
-            cart={cart}
-            addCart={addCart}
-            handleChange={handleChange}
-            error={error}
-          />
+          <Aside products={products} cart={cart} addCart={addCart} />
         </div>
       </main>
     </Fragment>
