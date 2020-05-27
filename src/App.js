@@ -22,7 +22,6 @@ function App() {
       localStorage.setItem("cart", JSON.stringify([]));
     }
   }, [cart]);
-  //Guardar cantidad
 
   return (
     <Fragment>

@@ -1,6 +1,14 @@
 import React from "react";
 import ShoopingCart from "./ShoopingCart.jsx";
-const ShoopingCartItem = ({ cart, addCart }) => {
+const ShoopingCartItem = ({
+  cart,
+  addCart,
+  setTotalPrecio,
+  setRestante,
+  handleChange,
+  count,
+  error,
+}) => {
   return (
     <div className="col shopping__cart__item">
       <div className="row flex-column">
@@ -17,6 +25,11 @@ const ShoopingCartItem = ({ cart, addCart }) => {
                       product={product}
                       cart={cart}
                       addCart={addCart}
+                      handleChange={handleChange}
+                      count={count}
+                      setTotalPrecio={setTotalPrecio}
+                      setRestante={setRestante}
+                      error={error}
                     />
                   ))
                 )}
