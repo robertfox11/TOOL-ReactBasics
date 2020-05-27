@@ -1,13 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 const Price = ({ product, count }) => {
   //   const { price } = product;
   let result = product.price * count;
   //   console.log(result);
   return (
-    <h4>
-      {/* <strong>{product.price}</strong> */}
-      <strong>{result}</strong>
-    </h4>
+    <Fragment>
+      <h4>
+        <strong>{result}</strong>
+      </h4>
+    </Fragment>
   );
 };
 
