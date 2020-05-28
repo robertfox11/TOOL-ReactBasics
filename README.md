@@ -3,6 +3,55 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+npm install<br />
+npm run start
+
+## Aplication
+
+importamos nuestro componente Shopping Cart y Aside<br />
+Tambien importamos nuestro json => prduct.js<br />
+//Creamos un array para agregar el carrito
+const [products, saveProduct] = useState(prod);<br />
+//guardar en local Storage
+let prodLocalStorage = JSON.parse(localStorage.getItem("cart"));
+if (!prodLocalStorage) {
+prodLocalStorage = [];
+}
+//Json lo pasamos useState lo metemos a la variable products
+const [cart, addCart] = useState(prodLocalStorage);
+//USamos useEffect saber que se actualiza y mantenerlo
+useEffect(() => {
+let prodLocalStorage = JSON.parse(localStorage.getItem("cart", "count"));
+if (prodLocalStorage) {
+localStorage.setItem("cart", JSON.stringify(cart));
+} else {
+localStorage.setItem("cart", JSON.stringify([]));
+}
+}, [cart]);
+
+## Components
+
+(Aside)<br />
+Realiza la funcionalidad de recoger el numero el cambio del contador
+const [count, saveCount] = useState(1);
+conn la funcionalidad de handle Change
+Que lo pasaremos como props en nuestros<br>
+Component ShoppingCartItem<br>
+Componente TotalPrice<br>
+(ShoppingCartItem)
+Pasamos los props que utilizaremos para Shopping cart
+cart,
+addCart,
+setTotalPrecio,
+setRestante,
+handleChange,
+count,
+error,<br />
+
+##
+
+Tambien una validacion cuanto es menor de 1 y mayor de 10
+const [error, saveError] = useState(false);
 
 ### `npm start`
 

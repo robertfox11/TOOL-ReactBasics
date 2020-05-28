@@ -14,6 +14,7 @@ function App() {
   }
   //Json lo pasamos useState lo metemos a la variable products
   const [cart, addCart] = useState(prodLocalStorage);
+  //USamos useEffect saber que se actualiza y mantenerlo
   useEffect(() => {
     let prodLocalStorage = JSON.parse(localStorage.getItem("cart", "count"));
     if (prodLocalStorage) {

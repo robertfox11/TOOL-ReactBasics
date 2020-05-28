@@ -3,22 +3,17 @@ import ShoppingCartItem from "./ShoppingCartItem.jsx";
 import TotalPrice from "./TotalPrice.jsx";
 
 const Aside = ({ cart, addCart, products }) => {
-  const [TotalPrecio, setTotalPrecio] = useState(0);
-  // const [restante, setRestante] = useState(0);
   //validar cantidad
   const [count, saveCount] = useState(1);
   const [error, saveError] = useState(false);
   const handleChange = (e) => {
     e.preventDefault();
-    console.log("hola has hecho un cambio", parseInt(e.target.value, 10));
     saveCount(parseInt(e.target.value, 10));
     if (count < 1 || count > 9 || isNaN(count)) {
       saveError(true);
       return;
     }
     saveError(false);
-    // setTotalPrecio(count);
-    // setRestante(count);
   };
   return (
     <aside className="col col-6 col-lg-4 p-4">
@@ -30,7 +25,6 @@ const Aside = ({ cart, addCart, products }) => {
         <ShoppingCartItem
           cart={cart}
           addCart={addCart}
-          setTotalPrecio={setTotalPrecio}
           handleChange={handleChange}
           count={count}
           error={error}
@@ -38,7 +32,6 @@ const Aside = ({ cart, addCart, products }) => {
         <TotalPrice
           products={products}
           cart={cart}
-          TotalPrecio={TotalPrecio}
           handleChange={handleChange}
           count={count}
         />
@@ -46,5 +39,5 @@ const Aside = ({ cart, addCart, products }) => {
     </aside>
   );
 };
-
+//documentando App
 export default Aside;

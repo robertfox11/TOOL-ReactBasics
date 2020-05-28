@@ -1,7 +1,6 @@
 import React from "react";
 import "../App.scss";
 import BtnAddCart from "./BtnAddCart";
-
 import CustomSelect from "./CustomSelect";
 const ShoopingCart = ({
   product,
